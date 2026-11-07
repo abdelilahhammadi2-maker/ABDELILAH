@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un nouveau véhicule</title>
+
+    <style>
+        /* Mise en forme générale */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: cyan;
+        }
+
+        /* Cadre beige du formulaire */
+        form {
+            width: 520px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: #ffebcd;
+            border-radius: 25px;
+            box-shadow: 3px 3px 10px #555;
+        }
+
+        /* Titre en rouge */
+        h1 {
+            color: red;
+            text-align: center;
+        }
+
+        /* Tableau centré */
+        table {
+            margin: 0 auto;
+        }
+
+        /* Libellés en gras et centrés */
+        label {
+            font-weight: bold;
+            text-align: center;
+            display: block;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        /* Champs texte arrondis (Immatriculation et Couleur) */
+        .arrondi {
+            width: 180px;
+            height: 35px;
+            border: 5px solid #ccc;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        /* Pied de page */
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#" method="post">
+
+        <h1>Ajout d'un nouveau véhicule</h1>
+
+        <table border="0" width="60%">
+
+            <!-- Marque : liste déroulante car le choix se fait parmi 3 marques connues -->
+            <tr>
+                <td><label for="marque">Marque :</label></td>
+                <td>
+                    <select id="marque" name="marque">
+                        <option value="peugeot">Peugeot</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="renault">Renault</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Immatriculation : champ texte -->
+            <tr>
+                <td><label for="immatriculation">Immatriculation :</label></td>
+                <td><input type="text" id="immatriculation" name="immatriculation" class="arrondi"></td>
+            </tr>
+
+            <!-- Couleur : champ texte -->
+            <tr>
+                <td><label for="couleur">Couleur :</label></td>
+                <td><input type="text" id="couleur" name="couleur" class="arrondi"></td>
+            </tr>
+
+            <!-- Date d'immatriculation : champ date -->
+            <tr>
+                <td><label for="date_immat">Date d'immatriculation :</label></td>
+                <td><input type="date" id="date_immat" name="date_immat"></td>
+            </tr>
+
+            <!-- Kilométrage : champ numérique -->
+            <tr>
+                <td><label for="kilometrage">Kilométrage :</label></td>
+                <td><input type="number" id="kilometrage" name="kilometrage" min="0"></td>
+            </tr>
+
+            <!-- État : boutons radio exclusifs (un seul choix possible) -->
+            <tr>
+                <td><label for="occasion">État :</label></td>
+                <td>
+                    <label for="occasion">Occasion</label>
+                    <input type="radio" id="occasion" name="etat" value="occasion">
+
+                    <label for="neuf">Neuf</label>
+                    <input type="radio" id="neuf" name="etat" value="neuf">
+                </td>
+            </tr>
+
+            <!-- Carburant : boutons radio exclusifs (un seul carburant par véhicule) -->
+            <tr>
+                <td><label for="hybride">Carburant :</label></td>
+                <td>
+                    <label for="hybride">Hybride</label>
+                    <input type="radio" id="hybride" name="carburant" value="hybride">
+
+                    <label for="electrique">Électrique</label>
+                    <input type="radio" id="electrique" name="carburant" value="electrique">
+
+                    <label for="diesel">Diesel</label>
+                    <input type="radio" id="diesel" name="carburant" value="diesel">
+
+                    <label for="essence">Essence</label>
+                    <input type="radio" id="essence" name="carburant" value="essence">
+                </td>
+            </tr>
+
+            <!-- Boîte de vitesses : boutons radio car il n'y a que 2 choix possibles et exclusifs -->
+            <tr>
+                <td><label for="manuelle">Boîte de vitesses :</label></td>
+                <td>
+                    <label for="manuelle">Manuelle</label>
+                    <input type="radio" id="manuelle" name="boite" value="manuelle">
+
+                    <label for="automatique">Automatique</label>
+                    <input type="radio" id="automatique" name="boite" value="automatique">
+                </td>
+            </tr>
+
+            <!-- Nombre de portes : liste déroulante car il y a peu de valeurs possibles (2 à 5) -->
+            <tr>
+                <td><label for="portes">Nombre de portes :</label></td>
+                <td>
+                    <select id="portes" name="portes">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Donnée supplémentaire n°1 : kilométrage maximum autorisé en location
+                 (champ numérique car c'est une valeur en km) -->
+            <tr>
+                <td><label for="km_max">Km maximum autorisé :</label></td>
+                <td><input type="number" id="km_max" name="km_max" min="0"></td>
+            </tr>
+
+            <!-- Donnée supplémentaire n°2 : disponibilité à la location
+                 (case à cocher car la réponse est oui ou non) -->
+            <tr>
+                <td><label for="disponible">Disponible à la location :</label></td>
+                <td><input type="checkbox" id="disponible" name="disponible" value="oui"></td>
+            </tr>
+
+            <!-- Boutons de fin de formulaire -->
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Enregistrer">
+                    <input type="reset" value="Annuler">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <p>©2026 Agence Méditerranée - Location de véhicules</p>
+
+</body>
+</html>
